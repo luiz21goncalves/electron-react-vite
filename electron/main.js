@@ -1,4 +1,5 @@
 const { app, BrowserWindow, screen } = require('electron')
+const isDev = require('electron-is-dev')
 
 const isMac = process.platform === 'darwin'
 
@@ -11,6 +12,12 @@ function createBrowser() {
   })
 
   window.loadURL('http://localhost:3000')
+
+  if(isDev) {
+    window.webContents.openDevTools({
+      mode: 'detach'
+    })
+  }
 }
 
 app.whenReady().then(createBrowser).catch(e => console.error(e))
