@@ -11,6 +11,8 @@ function createBrowser() {
     height,
   })
 
+  window.removeMenu()
+
   window.loadURL('http://localhost:3000')
 
   if(isDev) {
