@@ -1,12 +1,20 @@
 {
   "name": "electron-app",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "electron/main.js",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start:electron": "electron .",
+    "start:react": "vite",
+    "start": "yarn start:react & yarn start:electron"
   },
   "devDependencies": {
-    "electron": "^16.0.1"
+    "@vitejs/plugin-react": "^1.0.9",
+    "electron": "^16.0.1",
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

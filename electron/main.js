@@ -10,7 +10,7 @@ function createBrowser() {
     height,
   })
 
-  window.loadFile('index.html')
+  window.loadURL('http://localhost:3000')
 }
 
 app.whenReady().then(createBrowser).catch(e => console.error(e))
