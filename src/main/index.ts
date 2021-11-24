@@ -1,5 +1,5 @@
-const { app, BrowserWindow, screen } = require('electron')
-const isDev = require('electron-is-dev')
+import { app, BrowserWindow, screen } from 'electron'
+import isDev from 'electron-is-dev'
 
 const isMac = process.platform === 'darwin'
 
@@ -13,7 +13,8 @@ function createBrowser() {
 
   window.removeMenu()
 
-  window.loadURL('http://localhost:3000')
+  window.loadFile('index.html')
+  // window.loadURL('http://localhost:3000')
 
   if(isDev) {
     window.webContents.openDevTools({

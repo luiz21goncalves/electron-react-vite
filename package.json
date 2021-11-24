@@ -1,10 +1,10 @@
 {
   "name": "electron-app",
   "version": "1.0.0",
-  "main": "electron/main.js",
+  "main": "dist/main/index.cjs",
   "license": "MIT",
   "scripts": {
-    "start:electron": "electron .",
+    "dev": "node scripts/watch.mjs",
     "start:react": "vite --config config/vite.renderer.ts"
   },
   "devDependencies": {
