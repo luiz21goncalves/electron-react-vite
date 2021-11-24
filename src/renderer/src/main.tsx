@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>React electron app</h1>
+    <h1>Vite + React + Electron + Typescript</h1>
   </React.StrictMode>,
   document.getElementById('root')
 )

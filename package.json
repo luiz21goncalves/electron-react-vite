@@ -5,13 +5,15 @@
   "license": "MIT",
   "scripts": {
     "start:electron": "electron .",
-    "start:react": "vite",
-    "start": "yarn start:react & yarn start:electron"
+    "start:react": "vite --config config/vite.renderer.ts"
   },
   "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
     "@vitejs/plugin-react": "^1.0.9",
     "electron": "^16.0.1",
     "electron-is-dev": "^2.0.0",
+    "typescript": "^4.5.2",
     "vite": "^2.6.14"
   },
   "dependencies": {
