@@ -34,7 +34,7 @@ export function loading() {
       border-radius: 50%;
       border: 8px solid #eef1efef;
       border-top-color: #A9B4C2;
-      animation: spinner 2s ease infinite;
+      animation: spinner 1s ease infinite;
     }
   `;
 
