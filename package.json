@@ -5,14 +5,29 @@
   "license": "MIT",
   "scripts": {
     "dev": "node scripts/watch.mjs",
-    "start:react": "vite --config config/vite.renderer.ts"
+    "start:react": "vite --config config/vite.renderer.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "@vitejs/plugin-react": "^1.0.9",
     "electron": "^16.0.1",
     "electron-is-dev": "^2.0.0",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-import-helpers": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.4.1",
     "typescript": "^4.5.2",
     "vite": "^2.6.14"
   },

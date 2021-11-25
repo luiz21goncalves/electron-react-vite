@@ -1,0 +1,100 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": ["error", {
+      "printWidth": 80,
+      "tabWidth": 2,
+      "singleQuote": true,
+      "trailingComma": "all",
+      "arrowParens": "always"
+    }],
+    "@typescript-eslint/no-unused-vars": ["warn", {
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_$|[iI]gnored"
+    }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/function-component-definition": [2, {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function"
+    }],
+    "import/prefer-default-export": "off",
+    "import/no-duplicates": "off",
+    "import/no-named-as-default": "off",
+    "import/no-useless-path-segments": ["error", {   "noUselessIndex": true }],
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        "**/test.ts?(x)",
+        "**/*.test.ts?(x)",
+        "**/spec.ts?(x)",
+        "**/*.spec.ts?(x)",
+        "**/stories.ts?(x)",
+        "**/*.stories.ts?(x)",
+        "**/mocks/**/*",
+        "**/utils/tests/**/*",
+        "**/vite.**.ts",
+        "**/preload/*.ts",
+        "**/main/*.ts",
+        "/scripts/**/*"
+      ]
+    }],
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          ["/^react$/", "/^react-(native|dom)$/"],
+          "module",
+          [
+            "/^@(assets|common|components|constants|contexts|hooks|mocks|pages|routes|services|styles|utils|shared|store)/",
+            "/^~/"
+          ],
+          ["parent", "sibling"],
+          "index"
+        ],
+        "alphabetize": { "order": "ignore", "ignoreCase": true }
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}
