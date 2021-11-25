@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   mode: process.env.NODE_ENV,
-  root: path.join(__dirname, '../src/main'),
+  root: path.join(__dirname, '../packages/main'),
   build: {
     outDir: '../../dist/main',
     lib: {

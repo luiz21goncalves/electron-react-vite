@@ -4,7 +4,7 @@ import { builtinModules } from 'module';
 
 export default defineConfig({
   mode: process.env.NODE_ENV,
-  root: path.join(__dirname, '../src/preload'),
+  root: path.join(__dirname, '../packages/preload'),
   build: {
     outDir: '../../dist/preload',
     lib: {

@@ -4,7 +4,7 @@ import { Button } from '../../components/Button';
 import { Container } from './styles';
 
 export const Home = () => {
-  const [receivedMessage, setReceivedMessage] = useState('Olá');
+  const [receivedMessage, setReceivedMessage] = useState('Hello');
 
   window.Main.on('message-replay', setReceivedMessage);
 
