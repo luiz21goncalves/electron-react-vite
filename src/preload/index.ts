@@ -1,5 +1,4 @@
-import fs from 'fs';
-import path from 'path';
+/* eslint-disable @typescript-eslint/ban-types */
 import { contextBridge, ipcRenderer } from 'electron';
 
 import { loading } from './loading';
@@ -27,11 +26,14 @@ export function domReady(
   appendLoading();
 })();
 
-contextBridge.exposeInMainWorld('Main', {
-  __dirname,
-  __filename,
-  fs,
-  path,
-  ipcRenderer,
+export const api = {
   removeLoading,
-});
+  sendMessage: (message: string) => {
+    ipcRenderer.send('message', message);
+  },
+  on: (channel: string, callback: Function) => {
+    ipcRenderer.on(channel, (event, data) => callback(data));
+  },
+};
+
+contextBridge.exposeInMainWorld('Main', api);
