@@ -1,7 +1,6 @@
-import path from 'path'
-import { builtinModules } from 'module'
-import { defineConfig } from 'vite'
-import isDev from 'electron-is-dev'
+import path from 'path';
+import { builtinModules } from 'module';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   mode: process.env.NODE_ENV,
@@ -10,15 +9,15 @@ export default defineConfig({
     outDir: '../../dist/main',
     lib: {
       entry: 'index.ts',
-      formats: ['cjs']
+      formats: ['cjs'],
     },
     sourcemap: false,
     emptyOutDir: true,
     rollupOptions: {
-      external: [ ...builtinModules, 'electron' ],
+      external: [...builtinModules, 'electron'],
       output: {
-        entryFileNames: '[name].cjs'
-      }
-    }
-  } 
-})
+        entryFileNames: '[name].cjs',
+      },
+    },
+  },
+});

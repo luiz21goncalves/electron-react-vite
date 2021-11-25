@@ -1,27 +1,30 @@
-import fs from 'fs'
-import path from 'path'
-import { contextBridge, ipcRenderer } from 'electron'
-import { useLoading } from './loading'
+import fs from 'fs';
+import path from 'path';
+import { contextBridge, ipcRenderer } from 'electron';
 
-const { appendLoading, removeLoading } = useLoading()
+import { loading } from './loading';
 
-export function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
-  return new Promise(resolve => {
+const { appendLoading, removeLoading } = loading();
+
+export function domReady(
+  condition: DocumentReadyState[] = ['complete', 'interactive'],
+) {
+  return new Promise((resolve) => {
     if (condition.includes(document.readyState)) {
-      resolve(true)
+      resolve(true);
     } else {
       document.addEventListener('readystatechange', () => {
         if (condition.includes(document.readyState)) {
-          resolve(true)
+          resolve(true);
         }
-      })
+      });
     }
-  })
+  });
 }
 
-; (async () => {
-  await domReady()
-  appendLoading()
+(async () => {
+  await domReady();
+  appendLoading();
 })();
 
 contextBridge.exposeInMainWorld('Main', {
@@ -31,4 +34,4 @@ contextBridge.exposeInMainWorld('Main', {
   path,
   ipcRenderer,
   removeLoading,
-})
+});

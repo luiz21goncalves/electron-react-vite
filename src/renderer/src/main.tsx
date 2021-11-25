@@ -1,14 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import './styles/global.css'
+import { App } from './App';
+
+import './styles/global.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Vite + React + Electron + Typescript</h1>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
   () => {
-    window.Main.removeLoading()
-  }
-)
+    window.Main.removeLoading();
+  },
+);

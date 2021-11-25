@@ -1,12 +1,12 @@
-export function useLoading() {
-  const wrapperElement = document.createElement('div')
-  const loadingElement = document.createElement('div')
-  const styles = document.createElement('style')
+export function loading() {
+  const wrapperElement = document.createElement('div');
+  const loadingElement = document.createElement('div');
+  const styles = document.createElement('style');
 
-  loadingElement.className = 'loading'
-  
-  wrapperElement.appendChild(loadingElement)
-  wrapperElement.className = 'wrapper'
+  loadingElement.className = 'loading';
+
+  wrapperElement.appendChild(loadingElement);
+  wrapperElement.className = 'wrapper';
 
   styles.innerHTML = `
     @keyframes spinner {
@@ -36,16 +36,16 @@ export function useLoading() {
       border-top-color: #A9B4C2;
       animation: spinner 2s ease infinite;
     }
-  `
+  `;
 
   return {
     appendLoading() {
-      document.head.appendChild(styles)
-      document.body.appendChild(wrapperElement)
+      document.head.appendChild(styles);
+      document.body.appendChild(wrapperElement);
     },
     removeLoading() {
-      document.head.removeChild(styles)
-      document.body.removeChild(wrapperElement)
-    }
-  }
+      document.head.removeChild(styles);
+      document.body.removeChild(wrapperElement);
+    },
+  };
 }

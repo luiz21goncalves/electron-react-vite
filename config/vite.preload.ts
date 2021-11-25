@@ -1,6 +1,6 @@
-import path from 'path'
-import { defineConfig } from 'vite'
-import { builtinModules } from 'module'
+import path from 'path';
+import { defineConfig } from 'vite';
+import { builtinModules } from 'module';
 
 export default defineConfig({
   mode: process.env.NODE_ENV,
@@ -15,10 +15,10 @@ export default defineConfig({
     minify: false,
     emptyOutDir: true,
     rollupOptions: {
-      external: [ ...builtinModules, 'electron' ],
+      external: [...builtinModules, 'electron'],
       output: {
-        entryFileNames: '[name].cjs'
-      }
+        entryFileNames: '[name].cjs',
+      },
     },
-  }
-})
+  },
+});
