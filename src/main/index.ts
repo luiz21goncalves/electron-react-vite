@@ -17,10 +17,11 @@ function createBrowser() {
 
   window.removeMenu();
 
-  window.loadURL('http://localhost:3000');
-
   if (isDev) {
+    window.loadURL('http://localhost:3000');
     window.webContents.openDevTools();
+  } else {
+    window.loadFile(path.join(__dirname, '../renderer/index.html'));
   }
 }
 

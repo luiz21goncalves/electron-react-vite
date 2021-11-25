@@ -9,6 +9,6 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     minify: false,
-    outDir: '../dist/renderer',
+    outDir: '../../dist/renderer',
   },
 });
