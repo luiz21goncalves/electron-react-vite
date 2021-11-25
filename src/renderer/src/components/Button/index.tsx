@@ -9,5 +9,15 @@ type ButtonProps = {
 export const Button = (props: ButtonProps) => {
   const { children } = props;
 
-  return <Container type="button">{children}</Container>;
+  return (
+    <Container
+      type="button"
+      onClick={() => {
+        window.Main.sendMessage('Greetings!');
+        console.log('Check main process log in terminal.');
+      }}
+    >
+      {children}
+    </Container>
+  );
 };

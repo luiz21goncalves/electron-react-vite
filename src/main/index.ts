@@ -1,4 +1,4 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, ipcMain } from 'electron';
 import isDev from 'electron-is-dev';
 import path from 'path';
 
@@ -11,6 +11,8 @@ function createBrowser() {
     width,
     height,
     webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: true,
       preload: path.join(__dirname, '../preload/index.cjs'),
     },
   });
@@ -25,9 +27,18 @@ function createBrowser() {
   }
 }
 
+async function registerListeners() {
+  ipcMain.on('message', (event, message) => {
+    console.log({ message });
+
+    event.reply('message-replay', `${message} ${Math.random()}`);
+  });
+}
+
 app
+  .on('ready', createBrowser)
   .whenReady()
-  .then(createBrowser)
+  .then(registerListeners)
   .catch((e) => console.error(e));
 
 app.on('window-all-closed', () => {
