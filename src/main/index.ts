@@ -1,5 +1,6 @@
 import { app, BrowserWindow, screen } from 'electron'
 import isDev from 'electron-is-dev'
+import path from 'path'
 
 const isMac = process.platform === 'darwin'
 
@@ -9,17 +10,17 @@ function createBrowser() {
   const window = new BrowserWindow({
     width,
     height,
+    webPreferences: {
+      preload: path.join(__dirname, '../preload/index.cjs')
+    }
   })
 
   window.removeMenu()
 
-  window.loadFile('index.html')
-  // window.loadURL('http://localhost:3000')
+  window.loadURL('http://localhost:3000')
 
   if(isDev) {
-    window.webContents.openDevTools({
-      mode: 'detach'
-    })
+    window.webContents.openDevTools()
   }
 }
 
