@@ -1,3 +1,5 @@
+import { Home } from './screens/Home';
+
 export const App = () => {
-  return <h1>Vite + React + Electron + Typescript</h1>;
+  return <Home />;
 };
